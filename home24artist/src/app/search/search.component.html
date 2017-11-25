@@ -1,6 +1,10 @@
-<form class="form-search">
-  <input type="text" class="searchbar" name="search" placeholder="Search an artist here"/>
-  <button class="searchButton">
+<form class="form-search" #formSearch="ngForm" (ngSubmit)="$event.preventDefault();onSubmit()">
+  <input type="text" class="searchbar" id="search" name="search"
+    required
+    [(ngModel)]="search"
+    (keyup.enter)="$event.preventDefault()"
+    placeholder="Search an artist here..."/>
+  <button class="searchButton" (click)="$event.preventDefault();onSubmit()">
     <span class="fa fa-search" aria-hidden="true"></span>
   </button>
 </form>

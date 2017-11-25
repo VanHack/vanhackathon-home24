@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule }   from '@angular/forms';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ArtistService } from './artist.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,11 +15,11 @@ import { FilterComponent } from './content/filter/filter.component';
 import { ArtistComponent } from './content/artist/artist.component';
 import { EventsComponent } from './content/events/events.component';
 import { EventComponent } from './content/events/event/event.component';
+import { LoaderComponent } from './ui/loader/loader.component';
 
 
 @NgModule({
   declarations: [
-    AppRoutingModule,
     AppComponent,
     HeaderComponent,
     BodyComponent,
@@ -25,12 +28,16 @@ import { EventComponent } from './content/events/event/event.component';
     FilterComponent,
     ArtistComponent,
     EventsComponent,
-    EventComponent
+    EventComponent,
+    LoaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ArtistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

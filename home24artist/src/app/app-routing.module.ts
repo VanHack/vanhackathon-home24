@@ -3,9 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BodyComponent } from './body/body.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: '/index', component: BodyComponent }
+const routes: Routes = [  
+  { path: '', component: BodyComponent }
 ];
 
 @NgModule({

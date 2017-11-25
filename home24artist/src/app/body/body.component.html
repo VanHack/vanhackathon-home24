@@ -1,5 +1,6 @@
-<div class="home-container">  
-  <app-search></app-search>
-  <app-filter></app-filter>
-  <app-content></app-content>
+<div class="home-container">
+  <app-search (onSearch)="search($event)"></app-search>
+  <app-loader *ngIf="this.isLoading"></app-loader>
+  <app-filter *ngIf="!this.isLoading && artist"></app-filter>
+  <app-content *ngIf="!this.isLoading && artist" [artist]="artist"></app-content>
 </div>

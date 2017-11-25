@@ -1,14 +1,14 @@
-<img src="https://s3.amazonaws.com/bit-photos/large/8234161.jpeg"/>
+<img src="{{artist.imageUrl}}"/>
 <div class="card-content">
   <h3>
-    Slipknot
+    {{artist.name}}
   </h3>
-  <div>
+  <div *ngIf="artist.facebook">
     <button>
       1000
       <span class="fa fa-thumbs-up" aria-hidden="true"></span>
     </button>
-    <a href="https://www.bandsintown.com/a/77?came_from=267&app_id=mine">
+    <a href="{{artist.facebook.url}}">
       <span class="fa fa-facebook" aria-hidden="true"></span>
     </a>
   </div>
