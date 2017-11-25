@@ -1,0 +1,40 @@
+.card-body {
+  background-color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body img {
+  align-self: center;
+  width: 70%;
+  min-width: 200px;
+}
+
+.card-content {
+  width: 70%;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: Arial;
+}
+
+.card-content div {
+  align-self: center;
+  display: flex;
+}
+
+.card-content div button {
+  margin-right: 3px;
+  font-size: 0.6em;
+  color: white;
+  background-color: #6d84b4;
+  border: none;
+  border-radius: 5px;
+}
+
+.card-content div a {
+  color: #6d84b4;
+}

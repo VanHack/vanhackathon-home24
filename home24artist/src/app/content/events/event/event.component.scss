@@ -1,0 +1,100 @@
+.event {
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.15);
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 5px;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out; /** Chrome & Safari **/
+  -moz-transition: all 0.5s ease-out; /** Firefox **/
+  -o-transition: all 0.5s ease-out; /** Opera **/
+}
+
+.event:hover {
+  box-shadow: 0px 5px 2px rgba(0,0,0,0.5);
+  transform: translate(0, -5px);
+  -webkit-transform: translate(0, -5px); /** Chrome & Safari **/
+  -o-transform: translate(0,0); /** Opera **/
+  -moz-transform: translate(0,0); /** Firefox **/
+}
+
+.event-avatar {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.event-avatar .thumbnail {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.event-avatar .thumbnail img{
+  width: 100%;
+  height: 100%;
+}
+
+.event-content {
+  height: 100%;
+  flex: 4;
+  padding-left: 10px;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.event-title {
+  flex: 1;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-family: Anton;
+  font-size: 1.2em;
+  color: #f55b3e;
+}
+
+.event-location {
+  flex: 2;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.event-url {
+  flex: 2.5;
+}
+
+.event-side {
+  height: 100%;
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  cursor: default;
+}
+
+.event-side .event-date {
+  font-size: 0.9em;
+  color: black;
+}
+
+.event-side .event-info {
+  align-self: center;
+  font-weight: bold;
+  font-size: 0.7em;
+  padding: 4px;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+  background-color: #f55b3e;
+  width: 60%;
+}

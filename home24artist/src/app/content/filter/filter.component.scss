@@ -1,0 +1,38 @@
+.filters {
+  box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+  width: 67.5%;
+  padding: 2% 0 2% 0;
+  margin-left: 3%;
+  color: #354044;
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter-calendar {
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 1.0em;
+  cursor: pointer;
+}
+
+.filter-calendar:hover {
+  background-color: #6d84b4;
+  color: white;
+}
+
+.filter-calendar span span {
+  font-weight: bold;
+  font-family: Raleway;
+}
+
+.filter-group {
+  font-family: raleway;
+  font-weight: bold;
+  align-self: center;
+}
+
+.filter-sort {
+  font-family: raleway;
+  font-weight: bold;
+  align-self: center;
+}
