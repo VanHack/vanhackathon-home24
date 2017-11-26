@@ -44,4 +44,20 @@ export class Artist {
     }
   }
 
+  public setFacebookData(data: any) {
+    if(data){
+      if(data.fan_count) {
+        this.facebook.likes = Number(data.fan_count);
+      }
+
+      if(data.genre) {
+        this.facebook.genre = data.genre;
+      }
+
+      if(data.website) {
+        this.facebook.website = data.website;
+      }
+    }
+  }
+
 }

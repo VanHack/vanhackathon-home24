@@ -10,11 +10,16 @@ import { ArtistService } from '../artist.service';
 })
 export class BodyComponent implements OnInit {
   private isLoading: boolean = false;
+  private noData: boolean = false;
+
   artist: Artist = null;
 
   constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
+    if(this.artistService.getActiveArtist()) {
+      this.artist = this.artistService.getActiveArtist();
+    }
   }
 
   private search(name: string) {
@@ -30,15 +35,32 @@ export class BodyComponent implements OnInit {
               .subscribe(
                 (data) => {
                   this.artist.setEvents(data);
-                  this.isLoading = false;
+                  if(this.artist.facebook){
+                    this.artistService.getFacebookData(this.artist)
+                      .subscribe(
+                        (data) => {
+                          this.isLoading = false;
+                          this.artist.setFacebookData(data);
+                        },
+                        (err) => {
+                          this.isLoading = false;
+                          this.noData = true;
+                        }
+                      );
+                  }
+                  else {
+                    this.isLoading = false;
+                  }
                 },
                 (err) => {
-                  console.log("An error has ocurred", err);
+                  this.isLoading = false;
+                  this.noData = true;
                 }
               );
           },
           (err) => {
-            console.log(null);
+            this.isLoading = false;
+            this.noData = true;
           }
         );
     }

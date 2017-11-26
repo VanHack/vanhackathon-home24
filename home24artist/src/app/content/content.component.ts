@@ -1,4 +1,4 @@
-import { Component, Input ,OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Artist } from '../shared/artist.model';
 
@@ -7,13 +7,9 @@ import { Artist } from '../shared/artist.model';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent {
   @Input() artist: Artist;
 
   constructor() { }
-
-  ngOnInit() {
-    console.log(this.artist);
-  }
 
 }

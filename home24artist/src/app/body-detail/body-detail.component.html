@@ -1,0 +1,41 @@
+<div class="menu">
+  <span (click)="goBack()" class="backButton fa fa-arrow-circle-left fa-lg" aria-hidden="true"></span>
+</div>
+
+<div class="data-container">
+  <div class="event-card">
+    <div class="page1">
+      <img src="{{artist.imageUrl}}"/>
+      <span class="title">
+        {{artist.name}}
+      </span>
+      <span class="date fa fa-calendar">
+        <span>{{event.date}}</span>
+      </span>
+    </div>
+    <div class="page2">
+      <div class="page2-header">
+        <div class="page2-header-first">
+          <span class="location">
+            {{event.venue.name}}<br>
+            {{event.venue.city}} {{event.venue.region}}
+          </span>
+          <span class="country">{{event.venue.country}}</span>
+          <span class="event-url" [ngStyle]="{'background-color': event.statusColor}">
+            <a href="">{{event.status}}</a>
+          </span>
+        </div>
+        <div class="page2-header-second">
+          <img src="/assets/img/show_thumb.jpg" alt="" />
+        </div>
+      </div>
+      <div class="page2-body">
+        <div id="map" class="map">
+          <agm-map [latitude]="event.venue.latitude" [longitude]="event.venue.longitude">
+            <agm-marker [latitude]="event.venue.latitude" [longitude]="event.venue.longitude"></agm-marker>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

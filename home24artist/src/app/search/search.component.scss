@@ -1,3 +1,5 @@
+@import '~sass/_variables';
+
 .form-search {
   min-width: 400px;
   max-width: 50%;
@@ -20,8 +22,8 @@
   cursor: pointer;
   background-color: #ccc;
   min-height: 30px;
-  border: solid 1px #f55b3e;
-  background-color: #f55b3e;
+  border: solid 1px $primary-color;
+  background-color: $primary-color;
 }
 
 .searchButton:hover {
