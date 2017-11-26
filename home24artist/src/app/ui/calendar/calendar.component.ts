@@ -12,7 +12,7 @@ export class CalendarComponent implements OnInit {
   private currentYear: number;
   private currentMonth: number;
   private currentDisplayMonth: string;
-  private dates = [];
+  public dates = [];
   private daysWithEvents = [];
   private datesEvents = [];
   private voidDays = [];
