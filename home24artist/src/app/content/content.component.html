@@ -1,2 +1,8 @@
-<app-artist [artist]="artist"></app-artist>
-<app-events [events]="artist.events" [artist]="artist"></app-events>
+<app-artist [artist]="artist" [@simpleChange]></app-artist>
+<app-events [events]="artist.events" [artist]="artist" [@simpleChange]
+  *ngIf="!isCalendarSelected && artist.events.length > 0; else noEvents">
+</app-events>
+<ng-template #noEvents>
+  <div class="error" *ngIf="!isCalendarSelected">No events available</div>
+</ng-template>
+<app-calendar [events]="artist.events" [@simpleChange] *ngIf="isCalendarSelected" ></app-calendar>

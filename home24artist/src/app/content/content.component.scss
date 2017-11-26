@@ -6,3 +6,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.error {
+  font-weight: bold;
+  font-family: Raleway;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: 1.5;
+  min-width: 380px;
+}

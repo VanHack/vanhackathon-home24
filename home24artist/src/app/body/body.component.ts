@@ -9,8 +9,9 @@ import { ArtistService } from '../artist.service';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
-  private isLoading: boolean = false;
-  private noData: boolean = false;
+  isLoading: boolean = false;
+  isCalendar: boolean = false;
+  firstLoad: boolean = true;
 
   artist: Artist = null;
 
@@ -22,49 +23,57 @@ export class BodyComponent implements OnInit {
     }
   }
 
-  private search(name: string) {
+  public calendarSelectChange(isSelected: boolean) {
+    this.isCalendar = isSelected;
+  }
+
+  private errorLoading() {
+    this.artistService.persistArtist(null);
+    this.isLoading = false;
+    console.log("Error");
+  }
+
+  public search(name: string) {
+    this.firstLoad = false;
+    let artist;
     if(name.length > 0 && name != '') {
       this.artist = null;
       this.isLoading = true;
       this.artistService.getArtist(name)
         .subscribe(
           (data) => {
-            this.artist = new Artist();
-            this.artist.setArtist(data);
+            artist = new Artist();
+            artist.setArtist(data);
             this.artistService.getEvents(name)
               .subscribe(
                 (data) => {
-                  this.artist.setEvents(data);
-                  if(this.artist.facebook){
-                    this.artistService.getFacebookData(this.artist)
+                  artist.setEvents(data);
+                  if(artist.facebook) {
+                    this.artistService.getFacebookData(artist)
                       .subscribe(
                         (data) => {
+                          artist.setFacebookData(data);
+                          this.artistService.persistArtist(artist);
+                          this.artist = artist;
                           this.isLoading = false;
-                          this.artist.setFacebookData(data);
                         },
-                        (err) => {
-                          this.isLoading = false;
-                          this.noData = true;
-                        }
+                        (err) => this.errorLoading()
                       );
                   }
                   else {
+                    this.artistService.persistArtist(artist);
+                    this.artist = artist;
                     this.isLoading = false;
                   }
                 },
-                (err) => {
-                  this.isLoading = false;
-                  this.noData = true;
-                }
+                (err) => this.errorLoading()
               );
           },
-          (err) => {
-            this.isLoading = false;
-            this.noData = true;
-          }
+          (err) => this.errorLoading()
         );
     }
     else {
+      this.artistService.persistArtist(null);
       this.artist = null;
     }
   }

@@ -10,6 +10,7 @@
 }
 
 .searchbar {
+  background-color: white;
   flex: 1;
   border: solid 1px #ccc;
   min-height: 26px;
@@ -20,7 +21,6 @@
 .searchButton {
   flex: 0.15;
   cursor: pointer;
-  background-color: #ccc;
   min-height: 30px;
   border: solid 1px $primary-color;
   background-color: $primary-color;
@@ -31,5 +31,6 @@
 }
 
 .fa-search {
+  background-color: $primary-color;
   color: white;
 }

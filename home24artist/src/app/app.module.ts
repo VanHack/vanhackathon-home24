@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ArtistService } from './artist.service';
@@ -18,6 +22,7 @@ import { EventsComponent } from './content/events/events.component';
 import { EventComponent } from './content/events/event/event.component';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { BodyDetailComponent } from './body-detail/body-detail.component';
+import { CalendarComponent } from './ui/calendar/calendar.component';
 
 
 @NgModule({
@@ -32,16 +37,19 @@ import { BodyDetailComponent } from './body-detail/body-detail.component';
     EventsComponent,
     EventComponent,
     LoaderComponent,
-    BodyDetailComponent
+    BodyDetailComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBBkaYgtzMxtaYYIhEZgMALTK7AeCBeGK4'
-    })
+    }),
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
   ],
   providers: [ArtistService],
   bootstrap: [AppComponent]

@@ -11,8 +11,8 @@ import { Event } from '../shared/event.model';
   styleUrls: ['./body-detail.component.scss']
 })
 export class BodyDetailComponent implements OnInit {
-  private event: Event;
-  private artist: Artist;
+  public event: Event;
+  public artist: Artist;
 
   constructor(private artistService: ArtistService, private router: Router) { }
 

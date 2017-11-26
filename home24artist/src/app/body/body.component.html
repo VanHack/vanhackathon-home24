@@ -1,6 +1,15 @@
 <div class="home-container">
   <app-search (onSearch)="search($event)"></app-search>
   <app-loader *ngIf="this.isLoading"></app-loader>
-  <app-filter *ngIf="!this.isLoading && artist"></app-filter>
-  <app-content *ngIf="!this.isLoading && artist" [artist]="artist"></app-content>
+  <app-filter *ngIf="!this.isLoading && artist != null; else noArtist" 
+    (onCalendarSelectChange)="calendarSelectChange($event)">
+  </app-filter>
+  <ng-template #noArtist>
+    <span *ngIf="!firstLoad && !isLoading">
+      <b>Artist not found</b>
+    </span>
+  </ng-template>
+
+  <app-content *ngIf="!this.isLoading && artist != null" [artist]="artist" [isCalendarSelected]="isCalendar">
+  </app-content>
 </div>

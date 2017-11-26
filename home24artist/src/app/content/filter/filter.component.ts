@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+
+import { ArtistService } from '../../artist.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
-  constructor() { }
+  @Output() onCalendarSelectChange = new EventEmitter<boolean>();
+  isSelected: boolean = false;
 
-  ngOnInit() {
+  constructor(private artistService: ArtistService) { }
+
+  public onChange(value: string) {
+    this.artistService.onChangeEventsOrder(value);
+  }
+
+  public onCalendarSelected() {    
+    this.isSelected = !this.isSelected;
+    this.onCalendarSelectChange.emit(this.isSelected);
   }
 
 }

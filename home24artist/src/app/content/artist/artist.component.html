@@ -1,15 +1,28 @@
 <img src="{{artist.imageUrl}}"/>
 <div class="card-content">
-  <h3>
-    {{artist.name}}
-  </h3>
-  <div *ngIf="artist.facebook">
-    <button>
-      {{artist.facebook.likes}}
-      <span class="fa fa-thumbs-up" aria-hidden="true"></span>
-    </button>
+  
+  <div class="data">
+    <span class="title">
+      {{artist.name}}
+    </span>
+  </div>
+
+  <div *ngIf="artist.facebook" class="data facebook">
     <a href="{{artist.facebook.url}}">
-      <span class="fa fa-facebook" aria-hidden="true"></span>
+      <span *ngIf="artist.facebook.likes"class="fa fa-facebook fa-lg" aria-hidden="true">
+       {{artist.facebook.likes}}
+      </span>
+      <span class="fa fa-thumbs-up fa-lg like" aria-hidden="true">
+      </span>
     </a>
   </div>
+
+  <span *ngIf="artist.facebook">
+    <div *ngIf="artist.facebook.genre" class="data genre">
+      Genre: {{artist.facebook.genre}}
+    </div>
+    <div *ngIf="artist.facebook.website" class="data-website">
+      <a href="{{artist.facebook.website}}">Official Website</a>
+    </div>
+  </span>
 </div>

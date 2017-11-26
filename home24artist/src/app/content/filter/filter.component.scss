@@ -1,7 +1,14 @@
+@import '~sass/_variables';
+
+* {
+  background-color: white;
+}
+
 :host {
+  background-color: white;
   box-shadow: 0 2px 2px rgba(0,0,0,0.15);
   width: 70%;
-  padding: 2% 0% 2% 0%;  
+  padding: 2% 0 2% 0;
   color: #354044;
   display: flex;
   justify-content: space-around;
@@ -14,14 +21,27 @@
   cursor: pointer;
 }
 
-.filter-calendar:hover {
-  background-color: #6d84b4;
+.filter-calendar:hover, .filter-calendar:hover span, .filter-calendar:hover span span {
+  background-color: $primary-color-light;
   color: white;
 }
 
+.filter-calendar span {
+  background-color: white;
+}
+
 .filter-calendar span span {
+  background-color: white;
   font-weight: bold;
   font-family: Raleway;
+}
+
+.filter-calendar span:hover span {
+  background-color: $primary-color-light;
+}
+
+.filter-calendar span span:hover {
+  background-color: $primary-color-light;
 }
 
 .filter-group {

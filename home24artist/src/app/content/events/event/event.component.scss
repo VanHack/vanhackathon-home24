@@ -54,16 +54,15 @@
 }
 
 .event-title {
-  flex: 1;
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-family: Anton;
+  padding-top: 10%;
+  font-weight: bold;
+  font-family: Raleway;
   font-size: 1.2em;
   color: #f55b3e;
 }
 
 .event-location {
-  flex: 2;
+  padding-bottom: 14%;
   font-size: 0.9em;
   color: gray;
 }

@@ -1,0 +1,118 @@
+@import '~sass/_variables';
+@import '~sass/styles';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: 1.5;
+  min-width: 310px;
+}
+
+.calendar {
+  background-color: dimgray;
+  min-height: 200px;
+  max-height: 300px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.month {
+  padding: 50px 0;
+  width: 100%;
+  background: #f56633;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  cursor: pointer;
+  margin-top: 10px;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.month .next {
+  cursor: pointer;
+  float: right;
+  margin-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.month .next:hover, .month .prev:hover {
+  color: #f56633;
+  background-color: white;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    cursor: default;
+    display: inline-block;
+    width: 12.9%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    position: relative;
+    cursor: default;
+    list-style-type: none;
+    display: inline-block;
+    width: 12.9%;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-right: 4px;
+    font-size:12px;
+    color: #777;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    bottom: 100%;
+    left: 45%;
+    margin-left: -70px;
+    background-color: $primary-darker-color;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.days li .active {
+    cursor: pointer;
+    padding: 5px;
+    background: #f56633;
+    color: white !important
+}
